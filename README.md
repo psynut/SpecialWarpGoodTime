@@ -52,6 +52,16 @@ One
 
 _What will the game look? What kind of art is behind it? What feelings are being evoked?_
 
+We will use a 4 color palatte (as part of the wildcard challenge). Colors may be patterns with these colors that take on a blending effect for secondary colors.
+
+| Hex     | Name              |
+|---------|-------------------|
+| #D02536 | Persion Red       |
+| #3FC44C | Dark Pastel Green |
+| #21529D | Polynesian Blue   |
+| #0E0315 | Licorice          |
+<img src="4 Color Palette.png" alt="drawing" width="500"/>
+
 ### Technical Aspects
 
 Primarily to be played on browser play, but it would be helpful to also have an executable version for desktop as well (to be playable on the itch.io app). The game will be built on Godot - while having a product at the end of this process is a priority (a game that works is the lowest bar) another priority and even greater importance is building familiarity and comfort with building on Godot.
