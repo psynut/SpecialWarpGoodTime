@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://b5yexdd7f1wj7"]
+
+[ext_resource type="PackedScene" uid="uid://dat5t8uhbcxx1" path="res://scenes/floor_tile_00.tscn" id="1_s0e8e"]
+[ext_resource type="PackedScene" uid="uid://diivo5dyg6wut" path="res://scenes/floor_tile_01.tscn" id="2_56iji"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8bhdc"]
+resource_name = "Floor Tiles"
+scenes/1/scene = ExtResource("1_s0e8e")
+scenes/2/scene = ExtResource("2_56iji")
+
+[resource]
+tile_shape = 2
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 7
+sources/0 = SubResource("TileSetScenesCollectionSource_8bhdc")

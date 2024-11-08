@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://1u3e7vwunb57"]
+
+[ext_resource type="TileSet" uid="uid://b5yexdd7f1wj7" path="res://scenes/FloorTiles.tres" id="1_8acex"]
+[ext_resource type="PackedScene" uid="uid://cwuap5yrr10sb" path="res://scenes/Player.tscn" id="2_bpco0"]
+[ext_resource type="PackedScene" uid="uid://da6i5m2mqvu3w" path="res://scenes/camera_2d_follow.tscn" id="3_jxofp"]
+
+[node name="Level00" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = ExtResource("1_8acex")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 0, 65536, 589825, 0, 65536, 589826, 0, 65536, 589827, 0, 65536, 589828, 0, 65536, 589829, 0, 65536, 589830, 0, 65536, 589831, 0, 65536, 589832, 0, 65536, 589833, 0, 65536, 589834, 0, 65536, 589835, 0, 65536, 589836, 0, 65536, 589837, 0, 65536, 589838, 0, 65536, 589839, 0, 65536, 589840, 0, 65536, 589841, 0, 65536, 393216, 0, 131072, 393217, 0, 131072, 393218, 0, 131072, 393219, 0, 131072, 393220, 0, 131072, 393221, 0, 131072, 393222, 0, 131072, 393223, 0, 131072, 393224, 0, 131072, 393225, 0, 131072, 393228, 0, 131072, 393227, 0, 131072, 393226, 0, 131072, 393229, 0, 131072)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_bpco0")]
+position = Vector2(149, 598)
+
+[node name="Camera2D Follow" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("3_jxofp")]
+player_node = NodePath("../CharacterBody2D")

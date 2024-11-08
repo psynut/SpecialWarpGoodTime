@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwuap5yrr10sb"]
+
+[ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_ha6ak"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_nhak7"]
+[ext_resource type="AudioStream" uid="uid://b47jvcql85j1w" path="res://audio/sound effects/Jump 9 - Sound effects Pack 2.mp3" id="3_yof6v"]
+[ext_resource type="Script" path="res://scenes/AudioStreamPlayer2D.gd" id="4_6rn44"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kowq8"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+collision_mask = 30
+platform_floor_layers = 4294901776
+script = ExtResource("1_nhak7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(35, -147)
+texture = ExtResource("1_ha6ak")
+region_enabled = true
+region_rect = Rect2(401, 0, 400, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -440)
+texture = ExtResource("1_ha6ak")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 400)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(29, -332)
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("1_ha6ak")
+region_enabled = true
+region_rect = Rect2(802, 0, 400, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.19209e-07, -302)
+scale = Vector2(9.955, 20.3)
+shape = SubResource("CapsuleShape2D_kowq8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("4_6rn44")
+sound_clips = Array[AudioStream]([ExtResource("3_yof6v")])
