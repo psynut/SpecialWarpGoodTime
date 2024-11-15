@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqlhb1b5skxsv"]
+
+[ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_l52si"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5gnf"]
+size = Vector2(20.2632, 19.537)
+
+[node name="Enemy Robot00" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 17
+
+[node name="Treads" type="Sprite2D" parent="."]
+position = Vector2(8, -178)
+texture = ExtResource("1_l52si")
+region_enabled = true
+region_rect = Rect2(802, 401, 400, 400)
+
+[node name="Body" type="Sprite2D" parent="Treads"]
+position = Vector2(58, -193)
+texture = ExtResource("1_l52si")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(401, 401, 400, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.49999, -267.25)
+scale = Vector2(19, 27)
+shape = SubResource("RectangleShape2D_y5gnf")

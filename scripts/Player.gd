@@ -12,7 +12,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	print (is_on_floor())
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -32,6 +31,10 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().get_script() != null:
+			print("I collided with ", collision.get_collider().name, " ", collision.get_collider().get_script().get_global_name())
 	
 func jump():
 	velocity.y = JUMP_VELOCITY

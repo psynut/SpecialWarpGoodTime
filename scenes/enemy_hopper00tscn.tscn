@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7nan2nq5813s"]
+
+[ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_wp184"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6psck"]
+radius = 7.31579
+height = 16.1053
+
+[node name="Enemy Hopper00" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 17
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(10, -158)
+texture = ExtResource("1_wp184")
+region_enabled = true
+region_rect = Rect2(0, 802, 400, 400)
+
+[node name="Feet" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(-5, 44)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_wp184")
+region_enabled = true
+region_rect = Rect2(401, 802, 400, 400)
+
+[node name="EarForward" type="Sprite2D" parent="Body"]
+z_index = 1
+position = Vector2(-39, -145)
+rotation = -0.1309
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_wp184")
+region_enabled = true
+region_rect = Rect2(802, 802, 400, 400)
+
+[node name="EarBack" type="Sprite2D" parent="Body"]
+z_index = -1
+position = Vector2(-14, -156)
+rotation = 0.0855211
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_wp184")
+region_enabled = true
+region_rect = Rect2(1203, 802, 400, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -217)
+scale = Vector2(19, 27)
+shape = SubResource("CapsuleShape2D_6psck")
