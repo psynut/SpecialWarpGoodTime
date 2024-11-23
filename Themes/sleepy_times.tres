@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://wveywsph8ok"]
+
+[ext_resource type="FontFile" uid="uid://be8irkqbns235" path="res://fonts/papercuts-2.ttf" id="1_wacjg"]
+
+[resource]
+default_font = ExtResource("1_wacjg")
+default_font_size = 60
+/colors/Yellow = Color(0.925055, 0.827804, 0.19814, 1)
+/fonts/Papercuts = ExtResource("1_wacjg")
+Label/colors/font_color = Color(1, 1, 0.196078, 1)
+Label/colors/font_outline_color = Color(0.608292, 0.607106, 1.92523e-07, 1)
+Label/constants/outline_size = 13

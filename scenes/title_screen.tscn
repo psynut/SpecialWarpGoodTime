@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3 uid="uid://dflvv8whf2drh"]
+
+[ext_resource type="Theme" uid="uid://c5amg37nrv3xx" path="res://Themes/title.tres" id="1_2hipi"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_4ec43"]
+[ext_resource type="Script" path="res://scripts/play_button.gd" id="2_2j3tj"]
+[ext_resource type="Script" path="res://scenes/quit_button.gd" id="2_qio70"]
+[ext_resource type="Texture2D" uid="uid://c3dftujjbgrq4" path="res://sprites/Panel00.png" id="2_u0rai"]
+[ext_resource type="Texture2D" uid="uid://hopvpg4tihi" path="res://sprites/Background00.png" id="3_0oag1"]
+[ext_resource type="Script" path="res://scripts/Options Button.gd" id="4_3j6rk"]
+[ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="6_nkgvc"]
+[ext_resource type="PackedScene" uid="uid://1u3e7vwunb57" path="res://scenes/level_00.tscn" id="7_218jm"]
+[ext_resource type="PackedScene" uid="uid://bejtd33hju0h" path="res://scenes/panel_slider.tscn" id="10_ia03r"]
+
+[node name="Title Screen" type="Control"]
+custom_minimum_size = Vector2(960, 765)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ec43")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 201.0
+offset_right = 1407.0
+offset_bottom = 729.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Play Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_2hipi")
+theme_override_colors/font_color = Color(0.247059, 0.768627, 0.298039, 1)
+text = "Play"
+script = ExtResource("2_2j3tj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Options Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_2hipi")
+theme_override_font_sizes/font_size = 86
+text = "Options"
+script = ExtResource("4_3j6rk")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Quit Button" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_2hipi")
+theme_override_font_sizes/font_size = 86
+text = "Quit"
+script = ExtResource("2_qio70")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_right = -575.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2hipi")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.129412, 0.321569, 0.615686, 1)
+text = "Special Warp Good Time"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+show_behind_parent = true
+z_index = -100
+texture_repeat = 2
+layout_mode = 0
+offset_right = 3034.0
+offset_bottom = 1642.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("3_0oag1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.815686, 0.145098, 0.211765, 1)
+z_index = -5
+layout_mode = 0
+offset_left = 33.0
+offset_top = 60.0
+offset_right = 888.0
+offset_bottom = 541.0
+mouse_filter = 2
+texture = ExtResource("2_u0rai")
+expand_mode = 1
+
+[node name="Scene Manager" parent="." instance=ExtResource("6_nkgvc")]
+next_scene = ExtResource("7_218jm")
+
+[node name="Panel Slider" parent="." instance=ExtResource("10_ia03r")]
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Play Button" to="VBoxContainer/HBoxContainer/Play Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Options Button" to="VBoxContainer/HBoxContainer2/Options Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Quit Button" to="VBoxContainer/HBoxContainer3/Quit Button" method="_on_pressed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7nan2nq5813s"]
+[gd_scene load_steps=4 format=3 uid="uid://c7nan2nq5813s"]
 
+[ext_resource type="Script" path="res://scripts/hopper.gd" id="1_mghqb"]
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_wp184"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6psck"]
@@ -9,7 +10,7 @@ height = 16.1053
 [node name="Enemy Hopper00" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
-collision_mask = 17
+script = ExtResource("1_mghqb")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(10, -158)
@@ -47,3 +48,7 @@ region_rect = Rect2(1203, 802, 400, 400)
 position = Vector2(1, -217)
 scale = Vector2(19, 27)
 shape = SubResource("CapsuleShape2D_6psck")
+
+[node name="Hop Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

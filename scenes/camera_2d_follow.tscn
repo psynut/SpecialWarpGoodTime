@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scripts/camera_2d_follow.gd" id="1_bbrii"]
 
 [node name="Camera2D Follow" type="Camera2D"]
+limit_bottom = 700
 script = ExtResource("1_bbrii")

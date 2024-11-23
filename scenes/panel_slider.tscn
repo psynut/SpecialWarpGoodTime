@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://bejtd33hju0h"]
+
+[ext_resource type="Script" path="res://scripts/UI_panel_slider.gd" id="1_ejyds"]
+[ext_resource type="Texture2D" uid="uid://fxr4sh7d14i8" path="res://sprites/square_50x50.png" id="2_1rosk"]
+
+[sub_resource type="Animation" id="Animation_yy6ch"]
+resource_name = "Center to Left"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1450, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5iare"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hs0sn"]
+_data = {
+"Center to Left": SubResource("Animation_yy6ch"),
+"RESET": SubResource("Animation_5iare")
+}
+
+[node name="Panel Slider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejyds")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+modulate = Color(0.054902, 0.0117647, 0.0823529, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("2_1rosk")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hs0sn")
+}

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccwj8smte40yd"
+path="res://.godot/imported/Yawn.mp3-e397ded617f07399b5182fccb2cce6da.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/Yawn.mp3"
+dest_files=["res://.godot/imported/Yawn.mp3-e397ded617f07399b5182fccb2cce6da.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

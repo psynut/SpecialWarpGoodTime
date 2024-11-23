@@ -1,0 +1,163 @@
+[gd_scene load_steps=10 format=3 uid="uid://yvh1dqfgcdxf"]
+
+[ext_resource type="Texture2D" uid="uid://cwtvk14phxiqu" path="res://sprites/icon.svg" id="1_dg7p5"]
+[ext_resource type="Texture2D" uid="uid://d4j2ug4edjw68" path="res://sprites/BedHead.png" id="1_iqqyh"]
+[ext_resource type="Theme" uid="uid://wveywsph8ok" path="res://Themes/sleepy_times.tres" id="1_jjner"]
+[ext_resource type="AudioStream" uid="uid://ccwj8smte40yd" path="res://audio/sound effects/Yawn.mp3" id="4_0o7si"]
+[ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="5_phhmg"]
+[ext_resource type="PackedScene" uid="uid://dflvv8whf2drh" path="res://scenes/title_screen.tscn" id="6_ne7ng"]
+
+[sub_resource type="Animation" id="Animation_f1ddq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bwynp"]
+resource_name = "splash_fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/VBoxContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_470nh"]
+_data = {
+"RESET": SubResource("Animation_f1ddq"),
+"splash_fade_in": SubResource("Animation_bwynp")
+}
+
+[node name="Splash Screen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -40.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 120
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer2"]
+modulate = Color(0, 0, 0, 1)
+z_index = -100
+custom_minimum_size = Vector2(1500, 900)
+layout_mode = 2
+texture = ExtResource("1_dg7p5")
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+z_index = -10
+layout_mode = 2
+texture = ExtResource("1_iqqyh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 700)
+layout_mode = 2
+theme_override_constants/separation = 410
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("1_jjner")
+text = "Sleepy Time"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("1_jjner")
+text = "Games"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_470nh")
+}
+autoplay = "splash_fade_in"
+speed_scale = 0.7
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0o7si")
+autoplay = true
+
+[node name="Scene Manager" parent="." instance=ExtResource("5_phhmg")]
+wait_time = 6
+next_scene = ExtResource("6_ne7ng")

@@ -15,11 +15,12 @@ tile_set = ExtResource("1_8acex")
 format = 2
 layer_0/tile_data = PackedInt32Array(589824, 0, 65536, 589825, 0, 65536, 589826, 0, 65536, 589827, 0, 65536, 589828, 0, 65536, 589829, 0, 65536, 589830, 0, 65536, 589831, 0, 65536, 589832, 0, 65536, 589833, 0, 65536, 589834, 0, 65536, 589835, 0, 65536, 589836, 0, 65536, 589837, 0, 65536, 589838, 0, 65536, 589839, 0, 65536, 589840, 0, 65536, 589841, 0, 65536, 393216, 0, 131072, 393217, 0, 131072, 393218, 0, 131072, 393219, 0, 131072, 393220, 0, 131072, 393221, 0, 131072, 393222, 0, 131072, 393223, 0, 131072, 393224, 0, 131072, 393225, 0, 131072, 393228, 0, 131072, 393227, 0, 131072, 393226, 0, 131072, 393229, 0, 131072)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_bpco0")]
+[node name="Player" parent="." instance=ExtResource("2_bpco0")]
 position = Vector2(149, 598)
 
 [node name="Camera2D Follow" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("3_jxofp")]
-player_node = NodePath("../CharacterBody2D")
+position = Vector2(0, 500)
+player_node = NodePath("../Player")
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("4_oiikp")]
 position = Vector2(542, 606)

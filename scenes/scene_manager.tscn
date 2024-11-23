@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c466hdyetihk4"]
+
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_pqnsy"]
+
+[node name="Scene Manager" type="Node2D"]
+script = ExtResource("1_pqnsy")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
