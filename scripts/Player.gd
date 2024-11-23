@@ -3,8 +3,8 @@ extends CharacterBody2D
 signal jumped
 
 var health = 100
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var speed = 300.0
+@export var jump_velocity = -400.0
 
 @onready var audio_stream_player = $AudioStreamPlayer2D
 @onready var animation_player = $AnimationPlayer
@@ -37,12 +37,12 @@ func handle_movement(delta):
 	var direction = Input.get_axis("Move Left", "Move Right")
 	
 	if direction != 0:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		sprites_node.scale.x = sign(direction)
 		if is_on_floor() and not is_jumping:
 			animation_player.play("Walk")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		if is_on_floor() and not is_jumping:
 			animation_player.play("idle")
 
@@ -50,7 +50,7 @@ func handle_movement(delta):
 		jump()
 
 func jump():
-	velocity.y = JUMP_VELOCITY
+	velocity.y = jump_velocity
 	audio_stream_player.play()
 	animation_player.play("Jump")
 	is_jumping = true

@@ -172,7 +172,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.45, 0.45)
 collision_mask = 30
 platform_floor_layers = 4294901776
 script = ExtResource("1_nhak7")

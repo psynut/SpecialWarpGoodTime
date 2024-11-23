@@ -5,17 +5,30 @@ extends CharacterBody2D
 var speed = 0
 const JUMP_VELOCITY = -400.0
 
-func _ready():
+var facing_right = true
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
 	pass
 
 func _process(delta):
-
-	var direction = Vector2(-1, 0)  
-	velocity = direction * speed  
+	if !is_on_floor():
+		print("Applying gravity")
+		velocity.y += gravity * delta
+	else:
+		print("not applying gravity")
+	velocity.x = speed  
+	if velocity.x <0 && facing_right:
+		scale.x = 0-scale.x
+		facing_right = false
+	elif velocity.x>0 && !facing_right:
+		scale.x = 0-scale.x
+		facing_right = true
 	move_enemy()
 
 func move_enemy():
+	
 	move_and_slide()
 
 	var collision = get_slide_collision(0)
@@ -32,6 +45,7 @@ func move_enemy():
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+	print("velocity")
 	#audio_stream_player.play()
 	#animation_player.play("Jump")
 	#is_jumping = true

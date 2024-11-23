@@ -21,6 +21,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ec43")
 
+[node name="Panel Slider" parent="." instance=ExtResource("10_ia03r")]
+z_index = 5
+layout_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 931.0
@@ -110,9 +114,6 @@ expand_mode = 1
 
 [node name="Scene Manager" parent="." instance=ExtResource("6_nkgvc")]
 next_scene = ExtResource("7_218jm")
-
-[node name="Panel Slider" parent="." instance=ExtResource("10_ia03r")]
-layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Play Button" to="VBoxContainer/HBoxContainer/Play Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Options Button" to="VBoxContainer/HBoxContainer2/Options Button" method="_on_pressed"]
