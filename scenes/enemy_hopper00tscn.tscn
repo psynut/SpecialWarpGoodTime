@@ -10,6 +10,7 @@ height = 16.1053
 [node name="Enemy Hopper00" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_mghqb")
 
 [node name="Body" type="Sprite2D" parent="."]

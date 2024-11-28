@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqlhb1b5skxsv"]
+[gd_scene load_steps=6 format=3 uid="uid://bqlhb1b5skxsv"]
 
 [ext_resource type="Script" path="res://scripts/robot.gd" id="1_4xpsx"]
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_l52si"]
 [ext_resource type="Script" path="res://scripts/floor_detector.gd" id="3_u1luw"]
+[ext_resource type="Script" path="res://scripts/Wall Detector.gd" id="4_q5tyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5gnf"]
 size = Vector2(20.2632, 19.537)
@@ -10,6 +11,7 @@ size = Vector2(20.2632, 19.537)
 [node name="Enemy Robot00" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
+collision_mask = 17
 platform_floor_layers = 4294901776
 script = ExtResource("1_4xpsx")
 
@@ -36,3 +38,18 @@ script = ExtResource("3_u1luw")
 
 [node name="Marker2D" type="Marker2D" parent="Floor Detector"]
 position = Vector2(132, 64)
+
+[node name="Laser Starting Point" type="Marker2D" parent="."]
+position = Vector2(284, -476)
+
+[node name="Laser Raycast Point" type="Marker2D" parent="Laser Starting Point"]
+position = Vector2(3620, 0)
+
+[node name="Laser Container" type="Node" parent="."]
+
+[node name="Wall Detector" type="Node2D" parent="."]
+position = Vector2(100, -90)
+script = ExtResource("4_q5tyl")
+
+[node name="Marker2D" type="Marker2D" parent="Wall Detector"]
+position = Vector2(196, -164)

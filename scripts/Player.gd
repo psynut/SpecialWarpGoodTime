@@ -4,7 +4,7 @@ signal jumped
 
 var health = 100
 @export var speed = 300.0
-@export var jump_velocity = -400.0
+@export var jump_velocity = -700
 
 @onready var audio_stream_player = $AudioStreamPlayer2D
 @onready var animation_player = $AnimationPlayer
@@ -51,7 +51,7 @@ func handle_movement(delta):
 
 func jump():
 	velocity.y = jump_velocity
-	audio_stream_player.play()
+	audio_stream_player.play_track(0)
 	animation_player.play("Jump")
 	is_jumping = true
 

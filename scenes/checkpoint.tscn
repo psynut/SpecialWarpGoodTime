@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgrp8g8py20nj"]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_a33a0"]
+[ext_resource type="Texture2D" uid="uid://dsqsc72m2y5gy" path="res://sprites/SpriteSheet01.png" id="2_rdic0"]
+[ext_resource type="Texture2D" uid="uid://cu67wmmvpw2yv" path="res://sprites/ReadOut00.png" id="3_so61k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du3cg"]
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_a33a0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_du3cg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(0, -75)
+scale = Vector2(0.1275, 0.1275)
+texture = ExtResource("2_rdic0")
+region_enabled = true
+region_rect = Rect2(0, 1203, 400, 400)
+
+[node name="Display Text" type="Sprite2D" parent="."]
+visible = false
+z_index = -9
+position = Vector2(1, -85)
+scale = Vector2(0.131868, 0.131868)
+texture = ExtResource("3_so61k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

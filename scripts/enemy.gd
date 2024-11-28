@@ -14,10 +14,7 @@ func _ready():
 
 func _process(delta):
 	if !is_on_floor():
-		print("Applying gravity")
 		velocity.y += gravity * delta
-	else:
-		print("not applying gravity")
 	velocity.x = speed  
 	if velocity.x <0 && facing_right:
 		scale.x = 0-scale.x
@@ -45,7 +42,6 @@ func move_enemy():
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-	print("velocity")
 	#audio_stream_player.play()
 	#animation_player.play("Jump")
 	#is_jumping = true

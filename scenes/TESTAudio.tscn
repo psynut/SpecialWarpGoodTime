@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://diopxrtpyoyr3"]
+
+[ext_resource type="AudioStream" uid="uid://b47jvcql85j1w" path="res://audio/sound effects/Jump 9 - Sound effects Pack 2.mp3" id="1_fg4jl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_fg4jl")
+autoplay = true

@@ -1,16 +1,152 @@
-[gd_scene load_steps=4 format=3 uid="uid://h72kth0hqopn"]
+[gd_scene load_steps=8 format=3 uid="uid://h72kth0hqopn"]
 
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_4tw4f"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6spm2"]
+[ext_resource type="Script" path="res://scripts/rover.gd" id="1_kt67q"]
+[ext_resource type="Script" path="res://scripts/Wall Detector.gd" id="3_ad0bd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6psck"]
 radius = 5.78947
 height = 17.7778
 
+[sub_resource type="Animation" id="Animation_csmjg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/HeadSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0855211]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/LegBackSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.37001]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/LegForwardSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ArmForwardSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0855211]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/ArmBackSprite:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0855211]
+}
+
+[sub_resource type="Animation" id="Animation_spluv"]
+resource_name = "Walking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/HeadSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0855211, 0.349066, -0.174533, 0.0855211]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/LegBackSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.37001, 0.516617, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/LegForwardSprite:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.289725, -0.382227, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/ArmForwardSprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0855211, -0.204204, 0.549779, 0.0855211]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/ArmBackSprite:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0855211, 0.375246, -0.261799, 0.0855211]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iuvay"]
+_data = {
+"RESET": SubResource("Animation_csmjg"),
+"Walking": SubResource("Animation_spluv")
+}
+
 [node name="Enemy Rover" type="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(-0.25, 0.25)
 collision_layer = 2
-script = ExtResource("1_6spm2")
+collision_mask = 17
+script = ExtResource("1_kt67q")
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(7, -267)
@@ -40,6 +176,7 @@ region_rect = Rect2(401, 1203, 400, 400)
 [node name="LegBackSprite" type="Sprite2D" parent="Body"]
 z_index = -1
 position = Vector2(-9, 159)
+rotation = -0.37001
 scale = Vector2(0.605, 0.605)
 texture = ExtResource("1_4tw4f")
 flip_h = true
@@ -48,19 +185,21 @@ region_rect = Rect2(401, 1203, 400, 400)
 
 [node name="ArmForwardSprite" type="Sprite2D" parent="Body"]
 z_index = 2
-position = Vector2(-36, 22)
+position = Vector2(9, -5)
 rotation = 0.0855211
 scale = Vector2(0.405, 0.405)
 texture = ExtResource("1_4tw4f")
+offset = Vector2(-126.09, 83.87)
 region_enabled = true
 region_rect = Rect2(802, 1203, 400, 400)
 
 [node name="ArmBackSprite" type="Sprite2D" parent="Body"]
 z_index = -3
-position = Vector2(-43, -13)
+position = Vector2(-3.00003, -37)
 rotation = 0.0855211
 scale = Vector2(0.405, 0.405)
 texture = ExtResource("1_4tw4f")
+offset = Vector2(-117.705, 90.45)
 region_enabled = true
 region_rect = Rect2(802, 1203, 400, 400)
 
@@ -68,3 +207,16 @@ region_rect = Rect2(802, 1203, 400, 400)
 position = Vector2(5, -242)
 scale = Vector2(19, 27)
 shape = SubResource("CapsuleShape2D_6psck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iuvay")
+}
+speed_scale = 2.0
+
+[node name="Wall Detector" type="Node2D" parent="."]
+position = Vector2(-100, -90)
+script = ExtResource("3_ad0bd")
+
+[node name="Marker2D" type="Marker2D" parent="Wall Detector"]
+position = Vector2(-196, -164)
