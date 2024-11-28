@@ -18,7 +18,6 @@ func _physics_process(delta):
 
 
 func hop():
-	print("Hop!")
 	hop_timer.start(randf_range(hop_time_min, hop_time_max))
 	jump()
 	var rnd = randi_range(0,1)

@@ -12,5 +12,4 @@ func _physics_process(delta):
 	var query = PhysicsRayQueryParameters2D.create(global_position+Vector2(0,-1), raycast_target.global_position, collision_mask, [self])
 	var result = space_state.intersect_ray(query)
 	if result:
-		print("wall detected")
 		emit_signal("wall_detected")

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_wp184"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6psck"]
-radius = 7.31579
-height = 16.1053
+radius = 6.51852
+height = 13.037
 
 [node name="Enemy Hopper00" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -46,7 +46,7 @@ region_enabled = true
 region_rect = Rect2(1203, 802, 400, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -217)
+position = Vector2(4, -172)
 scale = Vector2(19, 27)
 shape = SubResource("CapsuleShape2D_6psck")
 

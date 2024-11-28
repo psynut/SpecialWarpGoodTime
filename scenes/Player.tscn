@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwuap5yrr10sb"]
+[gd_scene load_steps=12 format=3 uid="uid://cwuap5yrr10sb"]
 
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_ha6ak"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_nhak7"]
@@ -171,6 +171,10 @@ _data = {
 "idle": SubResource("Animation_esqb1")
 }
 
+[sub_resource type="Gradient" id="Gradient_ige57"]
+offsets = PackedFloat32Array(0, 0.514286, 0.518367, 1)
+colors = PackedColorArray(0.815686, 0.145098, 0.211765, 1, 0.815686, 0.145098, 0.211765, 1, 0.054902, 0.0117647, 0.0823529, 1, 0.054902, 0.0117647, 0.0823529, 1)
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.45, 0.45)
 collision_mask = 30
@@ -226,5 +230,60 @@ libraries = {
 speed_scale = 2.014
 
 [node name="Took Damage Timer" type="Timer" parent="."]
+
+[node name="ParticleSystems" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ParticleSystems"]
+position = Vector2(6.66667, -500)
+scale = Vector2(1, 0.755)
+emitting = false
+amount = 2280
+preprocess = 1.0
+emission_shape = 1
+emission_sphere_radius = 94.0
+direction = Vector2(0, 0)
+spread = 86.92
+gravity = Vector2(3.865, 0)
+initial_velocity_min = 28.05
+initial_velocity_max = 28.05
+orbit_velocity_max = 0.5
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_ige57")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="ParticleSystems"]
+position = Vector2(-2.22223, -260)
+rotation = 3.9427
+scale = Vector2(0.241, -1.31)
+emitting = false
+amount = 2280
+preprocess = 1.0
+emission_shape = 1
+emission_sphere_radius = 94.0
+direction = Vector2(0, 0)
+spread = 86.92
+gravity = Vector2(3.865, 0)
+initial_velocity_max = 178.74
+orbit_velocity_min = 0.25
+orbit_velocity_max = 0.25
+scale_amount_max = 3.0
+color = Color(0.129412, 0.321569, 0.615686, 1)
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="ParticleSystems"]
+position = Vector2(2.22222, -26.6667)
+scale = Vector2(1, 0.755)
+emitting = false
+amount = 2280
+preprocess = 1.0
+emission_shape = 1
+emission_sphere_radius = 94.0
+direction = Vector2(0, 0)
+spread = 86.92
+gravity = Vector2(3.865, 0)
+initial_velocity_min = 28.05
+initial_velocity_max = 28.05
+orbit_velocity_max = 0.5
+scale_amount_min = 0.75
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_ige57")
 
 [connection signal="timeout" from="Took Damage Timer" to="." method="_on_took_damage_timer_timeout"]
