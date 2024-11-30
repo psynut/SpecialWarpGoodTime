@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqlhb1b5skxsv"]
+[gd_scene load_steps=10 format=3 uid="uid://bqlhb1b5skxsv"]
 
 [ext_resource type="Script" path="res://scripts/robot.gd" id="1_4xpsx"]
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_l52si"]
 [ext_resource type="Script" path="res://scripts/floor_detector.gd" id="3_u1luw"]
 [ext_resource type="Script" path="res://scripts/Wall Detector.gd" id="4_q5tyl"]
+[ext_resource type="Script" path="res://scripts/AudioStreamPlayer2D.gd" id="5_aikgh"]
+[ext_resource type="AudioStream" uid="uid://dpevox46y0nt5" path="res://audio/sound effects/Smooth 15.wav" id="6_8rd4u"]
+[ext_resource type="AudioStream" uid="uid://c2v18wp46vedv" path="res://audio/sound effects/Smooth 16.wav" id="7_i1bp1"]
+[ext_resource type="AudioStream" uid="uid://db7nfqh6yhhi1" path="res://audio/sound effects/Smooth 17.wav" id="8_an1oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5gnf"]
 size = Vector2(20.2632, 19.537)
@@ -53,3 +57,7 @@ script = ExtResource("4_q5tyl")
 
 [node name="Marker2D" type="Marker2D" parent="Wall Detector"]
 position = Vector2(196, -164)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("5_aikgh")
+sound_clips = Array[AudioStream]([ExtResource("6_8rd4u"), ExtResource("7_i1bp1"), ExtResource("8_an1oa")])

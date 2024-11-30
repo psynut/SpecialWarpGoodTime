@@ -105,23 +105,37 @@ level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Warp Zone" parent="CanvasLayer0" node_paths=PackedStringArray("level_ui") instance=ExtResource("8_2cefx")]
 position = Vector2(7108, 696)
+warp_type = null
+return_point = null
+message = null
 level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Warp Zone3" parent="CanvasLayer0" node_paths=PackedStringArray("level_ui") instance=ExtResource("8_2cefx")]
 position = Vector2(8348, 696)
+warp_type = null
+return_point = null
+message = null
 level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Warp Zone4" parent="CanvasLayer0" node_paths=PackedStringArray("level_ui") instance=ExtResource("8_2cefx")]
 position = Vector2(9356, 696)
+warp_type = null
+return_point = null
+message = null
 level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Warp Zone5" parent="CanvasLayer0" node_paths=PackedStringArray("level_ui") instance=ExtResource("8_2cefx")]
 position = Vector2(14048, 696)
+warp_type = null
+return_point = null
+message = null
 level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Warp Zone2" parent="CanvasLayer0" node_paths=PackedStringArray("level_ui") instance=ExtResource("8_2cefx")]
 position = Vector2(-3248, 699)
 warp_type = 1
+return_point = null
+message = null
 level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Princess" parent="CanvasLayer0" node_paths=PackedStringArray("level_ui") instance=ExtResource("11_rg16x")]

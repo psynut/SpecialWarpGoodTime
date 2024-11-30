@@ -5,6 +5,7 @@ signal jumped
 var health = 100
 @export var speed = 300.0
 @export var jump_velocity = -700
+@export var gravity_factor = 3
 
 var original_position : Vector2
 
@@ -25,7 +26,10 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if velocity.y > 0:
+			velocity.y += gravity * gravity_factor * delta
+		else:
+			velocity.y += gravity * delta
 		if not is_jumping:
 			animation_player.play("Jump")
 			is_jumping = true
@@ -49,7 +53,7 @@ func handle_movement(delta):
 		if is_on_floor() and not is_jumping:
 			animation_player.play("Walk")
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed * delta)
+		velocity.x = move_toward(velocity.x, 0, speed*2.5 * delta)
 		if is_on_floor() and not is_jumping:
 			animation_player.play("idle")
 
@@ -70,8 +74,9 @@ func reset_to_idle_or_walk():
 		else:
 			animation_player.play("idle")
 
-func player_hurt(Vector2):
+func player_hurt(vec2):
 	if damage_timer.is_stopped():
+		velocity -= (global_position - vec2) * 5
 		damage_timer.start(5)
 		print(damage_timer.time_left)
 		health -= 10

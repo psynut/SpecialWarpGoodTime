@@ -3,6 +3,7 @@ extends Enemy
 @onready var laser_starting_point = $"Laser Starting Point"
 @onready var laser_raycast_point = $"Laser Starting Point/Laser Raycast Point"
 @onready var laser_containter = $"Laser Container"
+@onready var audio_stream_player = $AudioStreamPlayer2D
 var floor_detector
 var wall_detector
 var laser_scene = preload("res://scenes/laser.tscn")
@@ -28,17 +29,17 @@ func _physics_process(delta):
 			fire()
 	
 func turn_around():
-	print("turning around")
 	speed = 0-speed
 	
 func fire():
+	var rand_track_index = randi_range(0, audio_stream_player.sound_clips.size()-1)
+	audio_stream_player.play_track(rand_track_index)
 	fire_refractory = true
 	var laser_instance = laser_scene.instantiate()
 	laser_containter.add_child(laser_instance)
 	laser_instance.global_position = laser_starting_point.global_position
 	if speed > 0:
 		laser_instance.scale.x = 0-laser_instance.scale.x
-	print(str(["firing laser ", laser_instance.name]))
 	await get_tree().create_timer(1).timeout
 	fire_refractory = false
 	

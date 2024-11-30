@@ -15,3 +15,6 @@ func _ready():
 func load_next_scene():
 	print("Loading Next Scene")
 	get_tree().change_scene_to_packed(next_scene)
+
+func load_scene(scene):
+	get_tree().change_scene_to_file(scene)

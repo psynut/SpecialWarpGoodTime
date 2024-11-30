@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jlejvgmg68p3"]
+
+[ext_resource type="Script" path="res://scripts/enemy_turnaround.gd" id="1_kkuh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siuy4"]
+size = Vector2(100, 1000)
+
+[node name="Enemy Turnaround" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_kkuh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -500)
+shape = SubResource("RectangleShape2D_siuy4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,5 +10,4 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.has_method("player_hurt"):
 		body.player_hurt(global_position)
-		print("Laser hit")
 	queue_free()

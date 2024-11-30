@@ -12,4 +12,13 @@ script = ExtResource("1_8p8gi")
 position = Vector2(0, 100)
 shape = SubResource("RectangleShape2D_iebvs")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 200
+preprocess = 1.0
+explosiveness = 0.11
+randomness = 0.69
+lifetime_randomness = 0.65
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
