@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dflvv8whf2drh"]
+[gd_scene load_steps=10 format=3 uid="uid://dflvv8whf2drh"]
 
 [ext_resource type="Theme" uid="uid://c5amg37nrv3xx" path="res://Themes/title.tres" id="1_2hipi"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_4ec43"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://hopvpg4tihi" path="res://sprites/Background00.png" id="3_0oag1"]
 [ext_resource type="Script" path="res://scripts/Options Button.gd" id="4_3j6rk"]
 [ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="6_nkgvc"]
-[ext_resource type="PackedScene" uid="uid://1u3e7vwunb57" path="res://scenes/level_00.tscn" id="7_218jm"]
 [ext_resource type="PackedScene" uid="uid://bejtd33hju0h" path="res://scenes/panel_slider.tscn" id="10_ia03r"]
 
 [node name="Title Screen" type="Control"]
@@ -113,7 +112,7 @@ texture = ExtResource("2_u0rai")
 expand_mode = 1
 
 [node name="Scene Manager" parent="." instance=ExtResource("6_nkgvc")]
-next_scene = ExtResource("7_218jm")
+next_scene = "res://scenes/level_00.tscn"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Play Button" to="VBoxContainer/HBoxContainer/Play Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Options Button" to="VBoxContainer/HBoxContainer2/Options Button" method="_on_pressed"]

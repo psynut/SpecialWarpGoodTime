@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://yvh1dqfgcdxf"]
+[gd_scene load_steps=9 format=3 uid="uid://yvh1dqfgcdxf"]
 
 [ext_resource type="Texture2D" uid="uid://cwtvk14phxiqu" path="res://sprites/icon.svg" id="1_dg7p5"]
 [ext_resource type="Texture2D" uid="uid://d4j2ug4edjw68" path="res://sprites/BedHead.png" id="1_iqqyh"]
 [ext_resource type="Theme" uid="uid://wveywsph8ok" path="res://Themes/sleepy_times.tres" id="1_jjner"]
 [ext_resource type="AudioStream" uid="uid://ccwj8smte40yd" path="res://audio/sound effects/Yawn.mp3" id="4_0o7si"]
 [ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="5_phhmg"]
-[ext_resource type="PackedScene" uid="uid://dflvv8whf2drh" path="res://scenes/title_screen.tscn" id="6_ne7ng"]
 
 [sub_resource type="Animation" id="Animation_f1ddq"]
 length = 0.001
@@ -160,4 +159,4 @@ autoplay = true
 
 [node name="Scene Manager" parent="." instance=ExtResource("5_phhmg")]
 wait_time = 6
-next_scene = ExtResource("6_ne7ng")
+next_scene = "res://scenes/title_screen.tscn"

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwft7xhf6oxyx"]
+
+[ext_resource type="Script" path="res://scripts/star.gd" id="1_3nfdu"]
+[ext_resource type="Texture2D" uid="uid://dmg4xu2y1m3v7" path="res://sprites/Star01.png" id="1_p7g3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgyyf"]
+size = Vector2(500, 1387.5)
+
+[node name="Star" type="Node2D"]
+scale = Vector2(0.24, 0.24)
+script = ExtResource("1_3nfdu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(3.805, 3.805)
+amount = 4785
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -100)
+gravity = Vector2(0, 100)
+initial_velocity_min = 116.44
+initial_velocity_max = 253.42
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.247059, 0.768627, 0.298039, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+scale = Vector2(3.805, 3.805)
+amount = 4785
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, -100)
+gravity = Vector2(0, 100)
+initial_velocity_min = 116.44
+initial_velocity_max = 253.42
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color = Color(0.815686, 0.145098, 0.211765, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p7g3s")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2170.83, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(370.833, 325)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fgyyf")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sqbbj68focmi"]
+[gd_scene load_steps=13 format=3 uid="uid://sqbbj68focmi"]
 
 [ext_resource type="Texture2D" uid="uid://fxr4sh7d14i8" path="res://sprites/square_50x50.png" id="1_vmm8m"]
 [ext_resource type="Script" path="res://scripts/LevelUI.gd" id="2_4pu0r"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrp8g8py20nj" path="res://scenes/checkpoint.tscn" id="7_1rpd2"]
 [ext_resource type="PackedScene" uid="uid://dfk87ey3vu1it" path="res://scenes/warp_zone.tscn" id="8_dukxs"]
 [ext_resource type="PackedScene" uid="uid://c0yvvif2drime" path="res://scenes/princess.tscn" id="9_ulj5h"]
+[ext_resource type="PackedScene" uid="uid://cwft7xhf6oxyx" path="res://scenes/star.tscn" id="11_c6k3r"]
 [ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="13_8owee"]
 [ext_resource type="AudioStream" uid="uid://p40ddwojhs0q" path="res://audio/technogeek.mp3" id="14_r0m7f"]
 
@@ -104,7 +105,13 @@ level_ui = NodePath("../../CanvasLayer/Level UI")
 
 [node name="Scene Manager" parent="." instance=ExtResource("13_8owee")]
 unique_name_in_owner = true
+next_scene = "res://scenes/title_screen.tscn"
+
+[node name="Star" parent="Scene Manager" instance=ExtResource("11_c6k3r")]
+position = Vector2(-188, 286)
+scale = Vector2(0.185, 0.185)
 
 [node name="Music Player" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("14_r0m7f")
 autoplay = true
