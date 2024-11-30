@@ -13,3 +13,7 @@ https://freepd.com/scoring.php
 "Technogeek"
 by mrpoly CC0
 https://opengameart.org/content/techno-geek
+
+"Happy Adventure"
+by TinyWorlds
+https://opengameart.org/content/happy-adventure-loop

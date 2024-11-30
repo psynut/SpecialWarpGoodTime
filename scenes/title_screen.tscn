@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dflvv8whf2drh"]
+[gd_scene load_steps=11 format=3 uid="uid://dflvv8whf2drh"]
 
 [ext_resource type="Theme" uid="uid://c5amg37nrv3xx" path="res://Themes/title.tres" id="1_2hipi"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_4ec43"]
@@ -6,8 +6,9 @@
 [ext_resource type="Script" path="res://scripts/quit_button.gd" id="2_qio70"]
 [ext_resource type="Texture2D" uid="uid://c3dftujjbgrq4" path="res://sprites/Panel00.png" id="2_u0rai"]
 [ext_resource type="Texture2D" uid="uid://hopvpg4tihi" path="res://sprites/Background00.png" id="3_0oag1"]
-[ext_resource type="Script" path="res://scripts/Options Button.gd" id="4_3j6rk"]
+[ext_resource type="Script" path="res://scripts/credits_button.gd" id="4_3j6rk"]
 [ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="6_nkgvc"]
+[ext_resource type="AudioStream" uid="uid://bgmm5kigr4b0y" path="res://audio/happy_adveture.mp3" id="10_60gwr"]
 [ext_resource type="PackedScene" uid="uid://bejtd33hju0h" path="res://scenes/panel_slider.tscn" id="10_ia03r"]
 
 [node name="Title Screen" type="Control"]
@@ -48,13 +49,13 @@ script = ExtResource("2_2j3tj")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Options Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Credits Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_2hipi")
 theme_override_font_sizes/font_size = 86
-text = "Options"
+text = "Credits"
 script = ExtResource("4_3j6rk")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
@@ -114,6 +115,10 @@ expand_mode = 1
 [node name="Scene Manager" parent="." instance=ExtResource("6_nkgvc")]
 next_scene = "res://scenes/level_00.tscn"
 
+[node name="Music Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_60gwr")
+autoplay = true
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Play Button" to="VBoxContainer/HBoxContainer/Play Button" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Options Button" to="VBoxContainer/HBoxContainer2/Options Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Credits Button" to="VBoxContainer/HBoxContainer2/Credits Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Quit Button" to="VBoxContainer/HBoxContainer3/Quit Button" method="_on_pressed"]

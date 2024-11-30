@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://5aut3eukfmws"]
+
+[ext_resource type="Texture2D" uid="uid://c3dftujjbgrq4" path="res://sprites/Panel00.png" id="1_yxykm"]
+[ext_resource type="Texture2D" uid="uid://fxr4sh7d14i8" path="res://sprites/square_50x50.png" id="2_b71ik"]
+[ext_resource type="Script" path="res://scripts/close_button.gd" id="3_vd0n0"]
+[ext_resource type="Theme" uid="uid://c5amg37nrv3xx" path="res://Themes/title.tres" id="4_ikck4"]
+[ext_resource type="FontFile" uid="uid://cyf7xdpcnk405" path="res://fonts/Josefin_Sans/static/JosefinSans-Medium.ttf" id="5_8k2cg"]
+
+[node name="Credits Window" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits Panel" type="TextureRect" parent="."]
+modulate = Color(0.129412, 0.321569, 0.615686, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 150.0
+offset_right = 1276.0
+grow_vertical = 2
+texture = ExtResource("1_yxykm")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(0.054902, 0.0117647, 0.0823529, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 204.0
+offset_right = -212.0
+offset_bottom = 277.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_b71ik")
+stretch_mode = 0
+script = ExtResource("3_vd0n0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 204.0
+offset_right = 1228.0
+offset_bottom = 300.0
+theme = ExtResource("4_ikck4")
+theme_override_colors/font_color = Color(0.815686, 0.145098, 0.211765, 1)
+theme_override_fonts/font = ExtResource("5_8k2cg")
+theme_override_font_sizes/font_size = 96
+text = "X"
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 150.0
+offset_right = 882.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0.054902, 0.0117647, 0.0823529, 1)
+theme_override_font_sizes/font_size = 106
+text = "Credits"
+
+[node name="Credits2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 304.0
+offset_right = 920.0
+offset_bottom = 410.0
+theme_override_colors/font_color = Color(0.054902, 0.0117647, 0.0823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "Design / Coding / Art by PsyNut"
+
+[node name="Credits3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 410.0
+offset_right = 1224.0
+offset_bottom = 516.0
+theme_override_colors/font_color = Color(0.054902, 0.0117647, 0.0823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "\"Happy Adventure\" by TinyWorlds"
+
+[node name="Credits4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 516.0
+offset_right = 1224.0
+offset_bottom = 622.0
+theme_override_colors/font_color = Color(0.054902, 0.0117647, 0.0823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "\"Technogeek\" by mrpoly (CC0)"
+
+[node name="Credits6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 609.0
+offset_right = 1373.0
+offset_bottom = 715.0
+theme_override_colors/font_color = Color(0.054902, 0.0117647, 0.0823529, 1)
+theme_override_font_sizes/font_size = 40
+text = "\"Beat One\" by Kevin MacLeod(CC0)"
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
