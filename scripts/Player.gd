@@ -6,6 +6,8 @@ var health = 100
 @export var speed = 300.0
 @export var jump_velocity = -700
 @export var gravity_factor = 3
+@export var health_bar : Node
+@export var level_ui : Node
 
 var original_position : Vector2
 
@@ -21,8 +23,12 @@ var player_controlling = true
 var is_jumping = false
 
 func _ready():
+	if health_bar.has_method("change_value"):
+		health_bar.change_value(GlobalVariables.health)
+	damage_timer.one_shot = true
 	original_position = global_position
 	return_home()
+
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -75,13 +81,16 @@ func reset_to_idle_or_walk():
 			animation_player.play("idle")
 
 func player_hurt(vec2):
-	if damage_timer.is_stopped():
-		velocity -= (global_position - vec2) * 5
+	if damage_timer.time_left == 0:
+		audio_stream_player.play_track(randi_range(1,2))
+		velocity += Vector2((global_position - vec2).x, -50 ) * 10
+		print("distance: ", global_position-vec2, " | velocity: ", velocity)
 		damage_timer.start(5)
-		print(damage_timer.time_left)
-		health -= 10
+		GlobalVariables.health -= 10
+		if health_bar.has_method("change_value"):
+			health_bar.change_value(GlobalVariables.health)
 		print("Player hurt! Health is now: ", health)
-		if health <= 0:
+		if GlobalVariables.health <= 0:
 			die()
 
 func return_home():
@@ -102,9 +111,15 @@ func return_home():
 	
 
 func die():
-	print("Player has died!")
-	# Handle game over logic here
-	
+	player_controlling = false
+	audio_stream_player.play_track(3)
+	var music_player = get_node("%Music Player")
+	music_player.stop()
+	level_ui.display_message("GAME OVER")
+	await get_tree().create_timer(4).timeout
+	GlobalVariables.health = 100
+	var scene_manager = get_node("%Scene Manager")
+	scene_manager.load_scene("res://scenes/title_screen.tscn")
 
 
 

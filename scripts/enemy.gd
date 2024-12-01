@@ -43,5 +43,5 @@ func move_enemy():
 func jump():
 	velocity.y = JUMP_VELOCITY
 	#audio_stream_player.play()
-	#animation_player.play("Jump")
+	#animation_player.play("Jumpr")
 	#is_jumping = true

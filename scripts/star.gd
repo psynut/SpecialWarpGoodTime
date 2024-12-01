@@ -35,5 +35,6 @@ func _on_area_2d_body_entered(body):
 	music_player.stream = victory_song
 	music_player.play()
 	await get_tree().create_timer(10).timeout
+	GlobalVariables.health = 100
 	scene_manager.load_next_scene()
 

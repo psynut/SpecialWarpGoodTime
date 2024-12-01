@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://8aslsd1a4fx6"]
+
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_sq18q"]
+[ext_resource type="FontFile" uid="uid://0poet4v8i86d" path="res://fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="2_48dc2"]
+
+[node name="Health Bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sq18q")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.815686, 0.145098, 0.211765, 1)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 479.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("2_48dc2")
+step = 10.0
+value = 100.0
