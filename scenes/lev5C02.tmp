@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bc7ynadtd0f1o"]
+[gd_scene load_steps=17 format=3 uid="uid://bc7ynadtd0f1o"]
 
 [ext_resource type="Texture2D" uid="uid://fxr4sh7d14i8" path="res://sprites/square_50x50.png" id="1_8skd8"]
 [ext_resource type="Script" path="res://scripts/LevelUI.gd" id="1_t1hj8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://jlejvgmg68p3" path="res://scenes/enemy_turnaround.tscn" id="10_j1ia5"]
 [ext_resource type="PackedScene" uid="uid://c0yvvif2drime" path="res://scenes/princess.tscn" id="11_prlr5"]
 [ext_resource type="PackedScene" uid="uid://c466hdyetihk4" path="res://scenes/scene_manager.tscn" id="12_2ae6m"]
+[ext_resource type="PackedScene" uid="uid://c7nan2nq5813s" path="res://scenes/enemy_hopper00tscn.tscn" id="13_1g3rm"]
 [ext_resource type="AudioStream" uid="uid://p40ddwojhs0q" path="res://audio/technogeek.mp3" id="13_rpch6"]
 
 [node name="Level00" type="Node2D"]
@@ -148,28 +149,42 @@ scale = Vector2(0.25, -0.25)
 [node name="Enemies" type="Node" parent="CanvasLayer0"]
 
 [node name="Enemy Robot00" parent="CanvasLayer0/Enemies" instance=ExtResource("7_8mn0b")]
-position = Vector2(-15652, -402)
+position = Vector2(-12755, 399)
 
 [node name="Enemy Robot01" parent="CanvasLayer0/Enemies" instance=ExtResource("7_8mn0b")]
-position = Vector2(-15256, 586)
-
-[node name="Enemy Robot02" parent="CanvasLayer0/Enemies" instance=ExtResource("7_8mn0b")]
-position = Vector2(-18366, 399)
-
-[node name="Enemy Robot03" parent="CanvasLayer0/Enemies" instance=ExtResource("7_8mn0b")]
-position = Vector2(-16523, -399)
+position = Vector2(-15975, -402)
 
 [node name="Enemy Rover" parent="CanvasLayer0/Enemies" instance=ExtResource("8_t4kh2")]
-position = Vector2(-6778, 592)
+position = Vector2(-6803, 597)
+rotation = -3.14159
+scale = Vector2(0.25, -0.25)
 
 [node name="Enemy Rover2" parent="CanvasLayer0/Enemies" instance=ExtResource("8_t4kh2")]
-position = Vector2(-14172, 575)
+position = Vector2(-18028, 388)
+rotation = -3.14159
+scale = Vector2(0.25, -0.25)
 
 [node name="Enemy Rover3" parent="CanvasLayer0/Enemies" instance=ExtResource("8_t4kh2")]
-position = Vector2(-17099, 595)
+position = Vector2(-15324, 591)
+rotation = -3.14159
+scale = Vector2(0.25, -0.25)
 
 [node name="Enemy Rover4" parent="CanvasLayer0/Enemies" instance=ExtResource("8_t4kh2")]
-position = Vector2(-16123, -505)
+position = Vector2(-16451, -409)
+rotation = -3.14159
+scale = Vector2(0.25, -0.25)
+
+[node name="Enemy Hopper00" parent="CanvasLayer0/Enemies" instance=ExtResource("13_1g3rm")]
+position = Vector2(-7406, 499)
+
+[node name="Enemy Hopper01" parent="CanvasLayer0/Enemies" instance=ExtResource("13_1g3rm")]
+position = Vector2(-10685, 299)
+
+[node name="Enemy Hopper02" parent="CanvasLayer0/Enemies" instance=ExtResource("13_1g3rm")]
+position = Vector2(-14125, 584)
+
+[node name="Enemy Hopper03" parent="CanvasLayer0/Enemies" instance=ExtResource("13_1g3rm")]
+position = Vector2(-17504, -621)
 
 [node name="Warp Zones" type="Node" parent="CanvasLayer0"]
 

@@ -80,7 +80,7 @@ offset_right = 1224.0
 offset_bottom = 516.0
 theme_override_colors/font_color = Color(0.054902, 0.0117647, 0.0823529, 1)
 theme_override_font_sizes/font_size = 40
-text = "\"Happy Adventure\" by TinyWorlds"
+text = "\"Happy Adventure\" by TinyWorlds(CC0)"
 
 [node name="Credits4" type="Label" parent="."]
 layout_mode = 0

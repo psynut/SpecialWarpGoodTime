@@ -1,19 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7nan2nq5813s"]
+[gd_scene load_steps=8 format=3 uid="uid://c7nan2nq5813s"]
 
 [ext_resource type="Script" path="res://scripts/hopper.gd" id="1_mghqb"]
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_wp184"]
 [ext_resource type="Script" path="res://scripts/AudioStreamPlayer2D.gd" id="3_l82re"]
 [ext_resource type="AudioStream" uid="uid://cl0bm8vs5hs74" path="res://audio/sound effects/spring_08.ogg" id="4_cb7a7"]
+[ext_resource type="Script" path="res://scripts/Softspot RB.gd" id="5_x6kx4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6psck"]
 radius = 6.5185
 height = 13.037
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17oyp"]
+size = Vector2(100, 20)
 
 [node name="Enemy Hopper00" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_mghqb")
+hop_x_speed = -150
 
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(10, -158)
@@ -59,3 +64,13 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 script = ExtResource("3_l82re")
 sound_clips = Array[AudioStream]([ExtResource("4_cb7a7")])
+
+[node name="Softspot Area2D" type="Area2D" parent="."]
+position = Vector2(0, -368)
+collision_layer = 2
+script = ExtResource("5_x6kx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Softspot Area2D"]
+shape = SubResource("RectangleShape2D_17oyp")
+
+[connection signal="body_entered" from="Softspot Area2D" to="Softspot Area2D" method="_on_body_entered"]

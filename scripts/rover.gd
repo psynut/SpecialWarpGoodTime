@@ -3,12 +3,14 @@ extends Enemy
 @onready var animation_player = $AnimationPlayer
 @onready var wall_detector = $"Wall Detector"
 @onready var sound_stream_player = $AudioStreamPlayer2D
+@onready var softspot = $"Softspot Area2D"
 var walking = false
 
 func _ready():
 	make_noises()
 	speed = 100
 	wall_detector.connect("wall_detected", _on_detected_wall)
+	softspot.connect("body_entered", _on_softspot_bumped)
 	check_movement()
 	
 func _physics_process(delta):

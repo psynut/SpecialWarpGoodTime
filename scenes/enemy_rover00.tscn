@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h72kth0hqopn"]
+[gd_scene load_steps=13 format=3 uid="uid://h72kth0hqopn"]
 
 [ext_resource type="Texture2D" uid="uid://bupfvjujtlukm" path="res://sprites/SpriteSheet00.png" id="1_4tw4f"]
 [ext_resource type="Script" path="res://scripts/rover.gd" id="1_kt67q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/AudioStreamPlayer2D.gd" id="4_yho6x"]
 [ext_resource type="AudioStream" uid="uid://b8iaaptwwwalj" path="res://audio/sound effects/noise_02.ogg" id="5_g1jty"]
 [ext_resource type="AudioStream" uid="uid://bfcfib3yduhc" path="res://audio/sound effects/machine_03.ogg" id="6_8u1oj"]
+[ext_resource type="Script" path="res://scripts/Softspot RB.gd" id="7_6y623"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6psck"]
 radius = 5.78947
@@ -145,6 +146,9 @@ _data = {
 "Walking": SubResource("Animation_spluv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7018"]
+size = Vector2(120, 26)
+
 [node name="Enemy Rover" type="CharacterBody2D"]
 scale = Vector2(-0.25, 0.25)
 collision_layer = 2
@@ -227,3 +231,14 @@ position = Vector2(-196, -164)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 script = ExtResource("4_yho6x")
 sound_clips = Array[AudioStream]([ExtResource("5_g1jty"), ExtResource("6_8u1oj")])
+
+[node name="Softspot Area2D" type="Area2D" parent="."]
+position = Vector2(0, -496)
+collision_layer = 2
+script = ExtResource("7_6y623")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Softspot Area2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_b7018")
+
+[connection signal="body_entered" from="Softspot Area2D" to="Softspot Area2D" method="_on_body_entered"]

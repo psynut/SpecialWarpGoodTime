@@ -4,9 +4,12 @@ extends Enemy
 @onready var laser_raycast_point = $"Laser Starting Point/Laser Raycast Point"
 @onready var laser_containter = $"Laser Container"
 @onready var audio_stream_player = $AudioStreamPlayer2D
+@onready var softspot = $"Softspot Area2D"
+
 var floor_detector
 var wall_detector
 var laser_scene = preload("res://scenes/laser.tscn")
+
 
 var fire_refractory = false
 
@@ -14,6 +17,7 @@ var fire_refractory = false
 
 func _ready():
 	speed = 100
+	softspot.connect("body_entered", _on_softspot_bumped)
 	floor_detector = $"Floor Detector"
 	floor_detector.connect("no_floor", turn_around)
 	wall_detector = $"Wall Detector"
@@ -42,4 +46,3 @@ func fire():
 		laser_instance.scale.x = 0-laser_instance.scale.x
 	await get_tree().create_timer(1).timeout
 	fire_refractory = false
-	

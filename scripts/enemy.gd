@@ -1,16 +1,11 @@
 class_name Enemy
 extends CharacterBody2D
 
-@onready var collision_shape = $CollisionShape2D
 var speed = 0
 const JUMP_VELOCITY = -400.0
-
 var facing_right = true
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-func _ready():
-	pass
 
 func _process(delta):
 	if !is_on_floor():
@@ -45,3 +40,6 @@ func jump():
 	#audio_stream_player.play()
 	#animation_player.play("Jumpr")
 	#is_jumping = true
+	
+func _on_softspot_bumped(body):
+	queue_free()

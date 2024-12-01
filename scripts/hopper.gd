@@ -1,14 +1,16 @@
 extends Enemy
 
 @export var hop_time_min = 2
-@export var hop_time_max = 9
+@export var hop_time_max = 7
 @export var hop_x_speed = -100
 @onready var audio_stream_player = $AudioStreamPlayer2D
 @onready var hop_timer = $"Hop Timer"
+@onready var softspot = $"Softspot Area2D"
 
 var just_jumped=false
 
 func _ready():
+	softspot.connect("body_entered", _on_softspot_bumped)
 	hop_timer.connect("timeout", hop)
 	hop_timer.start(randf_range(hop_time_min, hop_time_max))
 	
@@ -27,3 +29,4 @@ func hop():
 	speed = hop_x_speed
 	await get_tree().create_timer(.25).timeout
 	just_jumped = true;
+
