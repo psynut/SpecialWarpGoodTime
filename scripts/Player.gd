@@ -84,14 +84,29 @@ func player_hurt(vec2):
 	if damage_timer.time_left == 0:
 		audio_stream_player.play_track(randi_range(1,2))
 		velocity += Vector2((global_position - vec2).x, -50 ) * 10
-		print("distance: ", global_position-vec2, " | velocity: ", velocity)
-		damage_timer.start(5)
+		player_blink()
+		damage_timer.start(4)
 		GlobalVariables.health -= 10
 		if health_bar.has_method("change_value"):
 			health_bar.change_value(GlobalVariables.health)
 		print("Player hurt! Health is now: ", health)
 		if GlobalVariables.health <= 0:
 			die()
+			
+func player_blink():
+	for n in 4:
+		if n != 3:
+			for i in 4:
+				sprites_node.visible = false
+				await get_tree().create_timer(.125).timeout
+				sprites_node.visible = true
+				await get_tree().create_timer(.125).timeout
+		else:
+			for i in 8:
+				sprites_node.visible = false
+				await get_tree().create_timer(.0625).timeout
+				sprites_node.visible = true
+				await get_tree().create_timer(.0625).timeout
 
 func return_home():
 	player_controlling = false
